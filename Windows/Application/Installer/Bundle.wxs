@@ -1,0 +1,43 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+    xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal"
+    xmlns:netfx="http://wixtoolset.org/schemas/v4/wxs/netfx">
+
+    <Bundle Name="Fellmonger" Manufacturer="Fernando Barbat" Version="0.0.1"
+        UpgradeCode="c18de106-49bd-4a98-89b7-128b02b6e4db">
+        <BootstrapperApplication>
+            <bal:WixStandardBootstrapperApplication
+                LicenseFile="license.rtf"
+                Theme="rtfLicense"
+                SuppressOptionsUI="yes"
+                ShowVersion="yes"
+            />
+        </BootstrapperApplication>
+
+        <Chain>
+            <ExePackage
+                DisplayName="Microsoft Windows App Runtime"
+                InstallArguments="-q"
+                Permanent="true"
+                Vital="true"
+            >
+                <ExePackagePayload Description="Microsoft Windows App Runtime"
+                    ProductName="Microsoft Windows App Runtime"
+                    Size="64177696"
+                    Version="1.5.0.0"
+                    Hash="A47CA86007847AC7F5EC0F81A400274BF3F24757039ACFF051A603CF0DF3BD99E0ECC8DB2F3CC11029D941DF912BCD6153B2BE6D5E36A41AA4C7B60C9A11F99A"
+                    Name="windowsAppRuntimeInstall-x64.exe"
+                    DownloadUrl="https://aka.ms/windowsappsdk/1.5/1.5.240802000/windowsappruntimeinstall-x64.exe" 
+                />
+            </ExePackage>
+
+            <MsiPackage
+                Id="Fellmonger"
+                Vital="yes"
+                Permanent="no"
+                Compressed="yes"
+                SourceFile="../.build/installer/FellmongerStandalone.msi"
+                bal:DisplayInternalUICondition="1"
+            />
+        </Chain>
+    </Bundle>
+</Wix>

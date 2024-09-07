@@ -1,0 +1,62 @@
+<Wix 
+  xmlns="http://wixtoolset.org/schemas/v4/wxs" 
+  xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui"
+  xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util"
+  >
+  <Package Name="Fellmonger" Version="0.0.1" Manufacturer="Fernando Barbat"
+    UpgradeCode="52951e16-9a4e-4f4e-a00f-db13f9e8734c">
+
+    <!-- Output a single msi file instead of cab + msi files-->
+    <MediaTemplate EmbedCab="yes" />
+
+    <!-- Icon that will be used for the installer -->
+    <Icon Id="fellmonger.ico" SourceFile="fellmonger.ico" />
+
+    <!-- Install the app in Program Files by default -->
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLDIR" Name="Fellmonger"/>
+    </StandardDirectory>
+
+    <!-- Copy the exe file and create a shortcut to it -->
+    <ComponentGroup Id="Components" Directory="INSTALLDIR">
+      <Component Id="MainExecutable" Guid="5f615ff0-58e9-4d66-a641-0cf7dea4a3af">
+        <File Id="MainExecutable" Source="..\.build\release\Fellmonger.exe" />
+        <Shortcut Id="StartMenuShortcut" 
+                          Name="Fellmonger" 
+                          Description="A minimal LLM chat client UI"
+                          Directory="ProgramMenuFolder" 
+                          Target="[#MainExecutable]"
+                          WorkingDirectory="INSTALLDIR" 
+                          Icon="fellmonger.ico"
+                          >
+        </Shortcut>
+      </Component>
+    </ComponentGroup>
+
+    <!-- Copy the rest of the files -->
+    <Files Directory="INSTALLDIR" Include="..\.build\installer\dependencies\**" />
+
+    <UI>
+      <!-- Allow the user to change the directory -->
+      <ui:WixUI Id="WixUI_InstallDir" />
+
+      <!--Show checkbox to start the application at the end of the installation -->
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication" Condition="WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed" />
+    </UI>
+
+    <!-- Use this property for the installation dir  -->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+
+    <!-- Use this license -->
+    <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+
+    <!-- Icon when removing the application -->
+    <Property Id="ARPPRODUCTICON" Value="fellmonger.ico" />
+
+    <!--Show checkbox to start the application at the end of the installation -->
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Fellmonger" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <Property Id="WixShellExecTarget" Value="[#MainExecutable]"/>
+    <CustomAction Id="LaunchApplication" DllEntry="WixShellExec" Impersonate="yes" BinaryRef="Wix4UtilCA_X86" />
+  </Package>
+</Wix>

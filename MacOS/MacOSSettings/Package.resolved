@@ -1,0 +1,24 @@
+{
+  "originHash" : "90a9345b183572a06ff5d7d19a5c8bed4bc327018d129aa80b4528c5e6b88996",
+  "pins" : [
+    {
+      "identity" : "opencombine",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenCombine/OpenCombine.git",
+      "state" : {
+        "branch" : "0.14.0",
+        "revision" : "8576f0d579b27020beccbccc3ea6844f3ddfc2c2"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "branch" : "600.0.0-prerelease-2024-07-24",
+        "revision" : "82a453c2dfa335c7e778695762438dfe72b328d2"
+      }
+    }
+  ],
+  "version" : 3
+}

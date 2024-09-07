@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:fellmonger}\\Windows\\Application",
+            "name": "Debug Fellmonger (Windows\\Application)",
+            "program": "${workspaceFolder:fellmonger}\\Windows\\Application\\.build\\debug\\Fellmonger.exe",
+            "preLaunchTask": "swift: Build Debug Fellmonger (Windows\\Application)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:fellmonger}\\Windows\\Application",
+            "name": "Release Fellmonger (Windows\\Application)",
+            "program": "${workspaceFolder:fellmonger}\\Windows\\Application\\.build\\release\\Fellmonger.exe",
+            "preLaunchTask": "swift: Build Release Fellmonger (Windows\\Application)"
+        }
+    ]
+}

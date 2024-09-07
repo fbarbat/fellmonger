@@ -1,0 +1,49 @@
+{
+  "originHash" : "bf69ac21cc1114eced381327aadb08dfbb6095ffb0a82c47181850f12524a307",
+  "pins" : [
+    {
+      "identity" : "ollamakit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fbarbat/OllamaKit",
+      "state" : {
+        "revision" : "824729e68b952ab6fb2ebfdd1af7e9c3994f2198"
+      }
+    },
+    {
+      "identity" : "openai",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MacPaw/OpenAI",
+      "state" : {
+        "revision" : "fd13a41e987004d14f1793c570721953a2767b03",
+        "version" : "0.2.9"
+      }
+    },
+    {
+      "identity" : "opencombine",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenCombine/OpenCombine.git",
+      "state" : {
+        "branch" : "0.14.0",
+        "revision" : "8576f0d579b27020beccbccc3ea6844f3ddfc2c2"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "branch" : "600.0.0-prerelease-2024-07-24",
+        "revision" : "82a453c2dfa335c7e778695762438dfe72b328d2"
+      }
+    },
+    {
+      "identity" : "swiftanthropic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fbarbat/SwiftAnthropic",
+      "state" : {
+        "revision" : "cb3b9405248d6d871df223e3485c361ced5f14ba"
+      }
+    }
+  ],
+  "version" : 3
+}
